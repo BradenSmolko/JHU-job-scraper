@@ -99,5 +99,10 @@ class JHUScraper:
         scraped_table['Date Posted'] = pd.to_datetime(scraped_table['Date Posted'], format='%b %d, %Y')
         scraped_table.sort_values(by=['Date Posted'], ascending=False, inplace=True)
 
-        # Export to csv in directory with a file name based on the search results
-        scraped_table.to_csv('JHUJobs_{}.csv'.format(self.search_terms), index=False)
+        # Export to csv in directory with a file name based on the search results (trim name if the search is long)
+        if len(self.search_terms) > 150:
+            search_name = self.search_terms[:151]
+        else:
+            search_name = self.search_terms
+
+        scraped_table.to_csv('JHUJobs_{}.csv'.format(search_name), index=False)
