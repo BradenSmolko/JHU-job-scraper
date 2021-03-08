@@ -1,22 +1,23 @@
 # JHUScraper
 
 ## Description
-Are you a Python user looking to work at Johns Hopkins University? You can use this file or framework to scrape job infromation from [jobs.jhu.edu](jobs.jhu.edu) so you can filter and sort job posts and not have to click that pesky 'Show More' button ever again!
+JHUScraper is a Python tool that uses BeautifulSoup to more easily get job infromation from [jobs.jhu.edu](jobs.jhu.edu). If you have Python downloaded on your computer and are looking for a comprehensive way to look at job postings on the Johns Hopkins career site, give this tool a try! Search with your preferred keywords and get a .csv file of all of the resulting job titles, dates they were posted, and links to learn more and apply!
 
-### Background
-I check jobs.jhu.edu almost daily for job postings at Johns Hopkins, but the site isn't the easiest to use. I am usually only interested in the newest postings because I have already seen the older posts, but the site doesn't allow you to sort the posts by date. One way you can get sorted posts, is by using their 'Job Alert' system, but I've had issues with the system not sending me emails, so I decided to build my own scraper that I could automate and run daily.
+### Personal Background
+I find myself checking the Johns Hopkins career page quite often to look for new postings (they are updated daily). My biggest issue with the search on the site is that the posts are not ordered by date, and there is no option to do so. In order to look at the newest jobs, I tried setting up job alerts through their system, but found that emails were consistently not coming through. To stay up to date with jobs and to practice "automating the boring stuff," I created a tool to scrape all of the job postings that are returned by a simple search on the career page.
 
-Using the JHUScraper class that is defined in the JHUScraper.py file, you can search, scrape, and export job information in just a few lines of code.
+Leveraging the JHUScraper.py code, you can search, scrape, and export job information in just a few lines of code. You can also run the QuickSearch.py file to interactively type your search terms and get results exported to a .csv file.
 
 ## Installation
-Assuming you already have Python installed on your machine (I have only tested with Python 3.9), just download the JHUScraper.py file to a folder where you'd like to receive your job information.
+Assuming you already have Python and some standard libraries installed on your computer (pandas, requests, BeautifulSoup), all you have to do is clone this repository or download the .zip file to your computer.
 
 ## Usage
-Like with the ExampleUsage.py file you can create another Python file in the same folder as JHUScraper.py, import the JHUScraper information from the file and then follow 3 steps:
+Basic usage of this tool is as easy as 1, 2, 3!
 
 ```Python
 from JHUScraper import *
 ```
+#  
 1. Create a JHUScraper instance with your search terms
 ```Python
 scraper = JHUScraper('search terms')
@@ -30,9 +31,20 @@ scraper.scrape_all_results()
 scraper.jobs_to_csv()
 ```
 
-Now you'll have a csv file with date-sorted job information so you can browse the file and follow links for jobs that look interesting. Happy job hunting! 
+## Interactive Use
+If you find yourself not wanting to edit the code or do any programming, you can also just run the interactive QuickSearch.py file and type your search terms when prompted.
 
-You can also create a task in something like Windows Task Scheduler to automate the process and get your list of jobs daily.
+1. Double-click on the QuickSearch.py file from your prefered directory 
+
+![image](https://user-images.githubusercontent.com/50993629/110374678-f1db7e00-801e-11eb-868a-a41b3174bbf6.png)
+
+2. Type your search terms when prompted and hit enter
+
+![image](https://user-images.githubusercontent.com/50993629/110375209-aaa1bd00-801f-11eb-9d42-3f9b0cc21f6a.png)
+
+3. Open the resulting .csv and explore your job options
+
+![image](https://user-images.githubusercontent.com/50993629/110375445-f7859380-801f-11eb-9d43-ae3fb21b042d.png)
 
 ## License
 I opted for the MIT License so that others are able to use this code as they please.
